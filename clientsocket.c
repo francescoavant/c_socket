@@ -21,14 +21,14 @@ int main() {
 	int connection_status = connect(network_socket,(struct sockaddr*) &server_address, sizeof(server_address));
 	//check for error with the connection
 	if (connection_status == -1){
-		printf ("errore nella creazione della connesione con il socket remoto \n");
+		printf ("error in socket connection \n");
 	}
-	//ricezione dati da server 
+	//receive data from server 
 	char server_response[256];
 	recv(network_socket, &server_response, sizeof(server_response),0);
 
 	//print out the server's response
-	printf ("il server ha mandato questo: %s\n", server_response);
+	printf ("server says: %s\n", server_response);
 
 	//close the socket
 	pclose (network_socket);
